@@ -78,7 +78,7 @@ public abstract class ConformanceTest {
     public void test(Fixture fixture) {
         boolean result = validate(fixture.getSchema(), fixture.getData());
         try {
-            assertThat(result).isEqualTo(fixture.isValid());
+            assertThat(result).as("With Schema \n%s\n Assert that \n%s\n is %s", fixture.getSchema(), fixture.getData(), fixture.isValid() ? "Valid (true)" : "Invalid (false)").isEqualTo(fixture.isValid());
         } catch (AssertionError e) {
             log.info("FAILURE: " + fixture);
             throw e;

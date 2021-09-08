@@ -59,8 +59,7 @@ public class Fixture {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder(name);
-        return builder.append(' ').append(description).toString();
+        return name + ": " + description;
     }
 
     static Stream<Fixture> load(Path path) {
@@ -84,8 +83,13 @@ public class Fixture {
     }
 
     private static String getName(Path path) {
+        String name = path.toString().contains("/optional/") ? "Optional " : "";
+        name = path.toString().contains("/optional/format/") ? "Format " : name;
+
         String fileName = path.getFileName().toString();
-        return fileName.substring(0, fileName.lastIndexOf('.'));
+        fileName = fileName.substring(0, fileName.lastIndexOf('.'));
+
+        return name + fileName;
     }
 
     private static JsonArray readArray(Path path) {
