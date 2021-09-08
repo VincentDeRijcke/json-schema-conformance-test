@@ -6,17 +6,20 @@ This project provides conformance tests to the [JSON Schema Specification]. All 
 
 ## Test Results
 
-The following table shows the number of failures occurred while testing popular JSON validators written in JVM languages as of 2020-11-03.
+The following table shows the number of failures (mandatory part of the spec + optional part of the spec) occurred while testing popular JSON validators written in JVM languages as of 2021-09-08.
 
-| Software | Version | Draft 2019-09 | Draft-07 | Draft-06 | Draft-04 |
+| Software | Version | Draft 2019-09 (1220 tests) | Draft-07 (1045 tests) | Draft-06 (880 test) | Draft-04 (688 tests) |
 | --- | --- | ---: | ---: | ---: | ---: |
-| [everit-org/json-schema] | 1.12.1 | n/a | 75 | 35 | 31 |
+| [everit-org/json-schema] | 1.12.1 | n/a | 14m + 61o | 35 | 31 |
 | [java-json-tools/json-schema-validator] | 2.2.14 | n/a | n/a | n/a | 25 |
 | [Justify] | 3.1.0 | n/a | 0 | 0 | 0 |
-| [networknt/json-schema-validator] | 1.0.44 | n/a | 92 | 47 | 31 |
+| [networknt/json-schema-validator] | 1.0.58 | 40m + 129o | 14m + 74o | 43 | 27 |
 | [ssilverman/snowy-json] | 0.15.0 | 0 | 0 | 0 | n/a |
 
-Note that _n/a_ in the table means that the software does not support the version of the specification.
+Note:
+
+* _n/a_ in the table means that the software does not support the version of the specification.
+* _m_ means an error in the mandatory part of the specification. _o_ in the optional. If nothing it is unspecified.
 
 ## How to Run
 
